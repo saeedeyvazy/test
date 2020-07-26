@@ -6,13 +6,15 @@ $(document).ready(function () {
 		var request = $.ajax({
 			url: 'https://localhost:8080/api/images/selfie',
 			type: 'POST',
+			dataType:"jsonp",
 			data: JSON.stringify({
 				registrationId: registrationId,
 				imageData: base64EncodedImage,
 			}),
 			headers: {
 				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin":"*"
+				"Access-Control-Allow-Origin":"*",
+				"Access-Control-Allow-Headers":"Content-Type"
 			},
 		})
 		request.done(function (response) {
@@ -24,7 +26,8 @@ $(document).ready(function () {
 
 		 var request2 = $.ajax({
 			url: "https://localhost:8080/api/images/liveness-action?registrationId=" + registrationId,
-			type: 'GET',
+			 type: 'GET',
+			 dataType:"jsonp",
 			headers: {
 				"Content-Type": "application/json",
 				"Access-Control-Allow-Origin":"*"
