@@ -4,9 +4,8 @@ $(document).ready(function () {
 		const registrationId = '5fab5e45-c063-4a58-8a38-f501c703ffd7'
 		
 		var request = $.ajax({
-			url: 'https://localhost:8080/api/images/selfie',
+			url: 'http://localhost:8080/api/images/selfie',
 			type: 'POST',
-			dataType:"jsonp",
 			data: JSON.stringify({
 				registrationId: registrationId,
 				imageData: base64EncodedImage,
@@ -25,9 +24,8 @@ $(document).ready(function () {
 		})
 
 		 var request2 = $.ajax({
-			url: "https://localhost:8080/api/images/liveness-action?registrationId=" + registrationId,
+			url: "http://localhost:8080/api/images/liveness-action?registrationId=" + registrationId,
 			 type: 'GET',
-			 dataType:"jsonp",
 			headers: {
 				"Content-Type": "application/json",
 				"Access-Control-Allow-Origin":"*"
@@ -47,7 +45,7 @@ $(document).ready(function () {
 		const base64EncodedImage = $('#base64-img').val()
 
 		var request = $.ajax({
-			url: 'https://localhost:8080/api/images/liveness-image',
+			url: 'http://localhost:8080/api/images/liveness-image',
 			type: 'POST',
 			data: JSON.stringify({
 				registrationId: '5fab5e45-c063-4a58-8a38-f501c703ffd7',
@@ -68,7 +66,7 @@ $(document).ready(function () {
 	$(document).on("click", "#get-liveness-performed", function () {
 		let registrationId = "5fab5e45-c063-4a58-8a38-f501c703ffd7"
 		var request = $.ajax({
-			url: "https://localhost:8080/api/images/liveness-performed?registrationId=" + registrationId,
+			url: "http://localhost:8080/api/images/liveness-performed?registrationId=" + registrationId,
 			type: 'GET',
 			headers: {
 				"Content-Type": "application/json",
